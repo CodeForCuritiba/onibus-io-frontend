@@ -37,5 +37,5 @@ Supondo que há uma instalação do node no seu computador, faça:
 
 ## Contribuindo
 
-Para contribuir no projeto, clone-o, crie uma branch e depois faça um Pull request. Usamos o Github flow. [](https://guides.github.com/introduction/flow/).
+Para contribuir no projeto, clone-o, crie uma branch e depois faça um Pull request. Usamos o Github flow. [https://guides.github.com/introduction/flow/]().
 Em caso de dúvidas, abra um issue nesse repositório.
