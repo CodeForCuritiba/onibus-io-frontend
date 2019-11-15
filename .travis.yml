@@ -1,0 +1,25 @@
+---
+services:
+  - docker
+
+jobs:
+  include:
+    - stage: Build dist
+      before_script:
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker pull node:13-alpine
+        - docker pull nginx:alpine
+      script:
+        - docker build -t onibus-io-frontend .
+    - stage: Deploy project to DockerHUB
+      if: branch = master-branch # branch =~ /^(master|release\/.*)$/
+      before_script:
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker pull node:13-alpine
+        - docker pull nginx:alpine
+        - docker build -t onibus-io-frontend
+        - docker tag onibus-io-frontend $DOCKER_USERNAME/onibus-io-frontend:$(cat VERSION)
+        - docker tag onibus-io-frontend $DOCKER_USERNAME/onibus-io-frontend:latest
+      script:
+        - docker push $DOCKER_USERNAME/python-pipenv:$(cat VERSION)
+        - docker push $DOCKER_USERNAME/python-pipenv:latest
