@@ -21,4 +21,4 @@ jobs:
       script:
         - docker push $DOCKER_USERNAME/code-for-curitiba-onibus-io-frontend:$(cat VERSION)
         - docker push $DOCKER_USERNAME/code-for-curitiba-onibus-io-frontend:latest
-        - ssh -i id_rsa preludian@jarvis.preludian.com.br -p 40022 -C "./code_for_curitiba_onibus_io_frontend_deploy.sh"
+        - ssh -oStrictHostKeyChecking=no -i id_rsa preludian@jarvis.preludian.com.br -p 40022 -C "./code_for_curitiba_onibus_io_frontend_deploy.sh"
