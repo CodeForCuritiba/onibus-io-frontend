@@ -15,7 +15,6 @@ branches:
 jobs:
   include:
     - stage: Test build on project; smoketest
-      if: branch =~ /^PR-[0-9]+$/
       before_script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       script:
@@ -23,6 +22,7 @@ jobs:
     - stage: Deploy project to DockerHUB
       if: branch = master
       before_script:
+        - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then exit 0; fi'
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         - docker build -t onibus-io-frontend .
         - docker tag onibus-io-frontend $DOCKER_USERNAME/onibus-io-frontend:$(cat VERSION)
@@ -33,6 +33,7 @@ jobs:
     - stage: Deploy to production server
       if: branch = master
       before_script:
+        - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then exit 0; fi'
         - pip install pipenv
         - openssl aes-256-cbc -K $encrypted_f4b4a98bdc3f_key -iv $encrypted_f4b4a98bdc3f_iv -in deploy/id_rsa.enc -out deploy/id_rsa -d
       script:
