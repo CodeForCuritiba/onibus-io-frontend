@@ -21,7 +21,7 @@ jobs:
       script:
         - docker build -t onibus-io-frontend .
     - stage: Deploy project to DockerHUB
-      if: branch = master1
+      if: branch = master
       before_script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         - docker build -t onibus-io-frontend .
