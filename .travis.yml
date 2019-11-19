@@ -20,11 +20,11 @@ jobs:
       before_script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         - docker build -t onibus-io-frontend .
-        - docker tag onibus-io-frontend $DOCKER_USERNAME/code-for-curitiba-onibus-io-frontend:$(cat VERSION)
-        - docker tag onibus-io-frontend $DOCKER_USERNAME/code-for-curitiba-onibus-io-frontend:latest
+        - docker tag onibus-io-frontend $DOCKER_USERNAME/onibus-io-frontend:$(cat VERSION)
+        - docker tag onibus-io-frontend $DOCKER_USERNAME/onibus-io-frontend:latest
         - openssl aes-256-cbc -K $encrypted_f4b4a98bdc3f_key -iv $encrypted_f4b4a98bdc3f_iv -in id_rsa.enc -out id_rsa -d
         - chmod 600 id_rsa
       script:
-        - docker push $DOCKER_USERNAME/code-for-curitiba-onibus-io-frontend:$(cat VERSION)
-        - docker push $DOCKER_USERNAME/code-for-curitiba-onibus-io-frontend:latest
+        - docker push $DOCKER_USERNAME/onibus-io-frontend:$(cat VERSION)
+        - docker push $DOCKER_USERNAME/onibus-io-frontend:latest
         # - ssh -oStrictHostKeyChecking=no -i id_rsa preludian@jarvis.preludian.com.br -p 40022 -C "./code_for_curitiba_onibus_io_frontend_deploy.sh"
