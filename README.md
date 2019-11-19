@@ -12,9 +12,14 @@ Projeto frontend do Onibus IO; Montado em cima do vuejs e vuetify;
 Não é necessário instalar nenhum software além do Docker. Se você tiver o Docker instalado no seu computador, basta rodar o seguinte comando.
 
     $ cd frontend;
-    $ docker run -v $(pwd):/app -w /app -it --rm -p 8080:8080 node:13-alpine npm install && npm run serve
+    $ docker run -v $(pwd):/app -w /app -it --rm -p 8080:8080 node:13-alpine sh serve.sh
 
-O comando é grande, mas o que ele faz?
+Se voce estiver usando um sistema operacional GNU/Linux com Docker instado voce também pode fazê-lo por meio do seguinte comando:
+
+    $ cd frontend;
+    $ make serve;
+
+Sobre o comando do docker, ele é grande, mas o que ele faz?
 
 * Roda o comando do docker usando:
   * roda o container;
@@ -33,7 +38,6 @@ Supondo que há uma instalação do node no seu computador, faça:
     $ cd frontend;
     $ npm install;
     $ npm run serve;
-
 
 ## Contribuindo
 
