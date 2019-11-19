@@ -18,7 +18,7 @@ jobs:
       script:
         - docker build -t onibus-io-frontend .
     - stage: Deploy project to DockerHUB
-      if: branch = master
+      if: branch = master1
       before_script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         - docker build -t onibus-io-frontend .
@@ -32,8 +32,8 @@ jobs:
       before_script:
         - pip install pipenv
         - openssl aes-256-cbc -K $encrypted_f4b4a98bdc3f_key -iv $encrypted_f4b4a98bdc3f_iv -in id_rsa.enc -out deploy/id_rsa -d
-        - chmod 600 deploy/id_rsa
       script:
         - cd deploy
+        - cat id_rsa
         - pipenv install --system --deploy
         - python deploy.py
