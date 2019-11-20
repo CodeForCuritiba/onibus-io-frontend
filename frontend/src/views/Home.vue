@@ -1,18 +1,30 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-container fluid fill-height class="full-width">
+    <v-row align="center" justify="center">
+      <v-col cols="12" align="center" justify="center">
+        <v-row align="center" justify="center">
+          <v-icon size="300">mdi-bus</v-icon>
+        </v-row>
+      </v-col>
+      <v-col cols="12" md="8">
+        <v-text-field
+          label="Linha"
+          placeholder="Busque aqui por código da linha"
+          outlined
+          append-icon="mdi-magnify"
+        ></v-text-field>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
+  name: 'home'
 }
 </script>
+<style scoped>
+.full-width {
+  width: 100vh;
+}
+</style>
