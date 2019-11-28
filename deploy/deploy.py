@@ -24,6 +24,6 @@ with Connection(host='jarvis.preludian.com.br',
         print ('Delete deleting container not possible... Keep going')
 
     print('Running container...')
-    c.run('docker run --restart=always -d --name code4cwb-onibus-io-frontend-container -m 128m -p 9001:80 code4cwb/onibus-io-frontend')
+    c.run('docker run --restart=always -d --network=code4cwb-onibusio --name code4cwb-onibus-io-frontend-container -m 128m -p 9001:80 code4cwb/onibus-io-frontend')
 
 print('\nTerminado com sucesso')

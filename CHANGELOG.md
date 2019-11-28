@@ -1,5 +1,9 @@
 # Changelog
 
+0.1.2
+-----
+- Ingressar host na rede de containers do backend no servidor em produção;
+
 0.1.1
 -----
 - Adicionado arquivo de configuração do prettier;
