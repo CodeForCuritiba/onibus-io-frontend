@@ -38,4 +38,8 @@ jobs:
       script:
         - cd deploy
         - ./run.sh
-        #- docker run --rm -v $(pwd):/data joepreludian/python-pipenv ./run.sh
+      after_script:
+        - wget https://raw.githubusercontent.com/CodeForCuritiba/datascience-kit/master/telegram_publisher.sh
+        - bash ./telegram_publisher.sh
+
+

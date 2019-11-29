@@ -1,5 +1,9 @@
 # Changelog
 
+0.2.0
+-----
+- Adicionar notificador no grupo do telegram
+
 0.1.2
 -----
 - Ingressar host na rede de containers do backend no servidor em produção;
