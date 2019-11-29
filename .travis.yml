@@ -38,7 +38,6 @@ jobs:
       script:
         - cd deploy
         - ./run.sh
-      after_script:
         - wget https://raw.githubusercontent.com/CodeForCuritiba/datascience-kit/master/telegram_publisher.sh
         - bash ./telegram_publisher.sh
 
